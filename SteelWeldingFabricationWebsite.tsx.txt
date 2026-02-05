@@ -1,0 +1,106 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function SteelWeldingFabricationWebsite(): JSX.Element {
+  return (
+    <div className="min-h-screen bg-gray-900 text-gray-100">
+      {/* Hero */}
+      <motion.header
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="py-20 px-6 text-center max-w-4xl mx-auto"
+      >
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          Precision Steel Welding & Fabrication
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 mb-8">
+          Custom metal solutions built to last — residential, commercial, and
+          industrial fabrication.
+        </p>
+        <div className="flex gap-4 justify-center">
+          <Button
+            className="px-6 py-3"
+            aria-label="Request a quote"
+            onClick={() => {
+              /* TODO: open quote modal or navigate to contact form */
+            }}
+          >
+            Request a Quote
+          </Button>
+        </div>
+      </motion.header>
+
+      {/* Services */}
+      <section className="py-20 px-6 bg-gray-900">
+        <h2 className="text-3xl font-semibold text-center mb-12 text-white">
+          Our Services
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            "Structural Steel Welding",
+            "Custom Fabrication",
+            "Repairs & Modifications",
+          ].map((service) => (
+            <Card key={service} className="bg-gray-800 border-gray-700">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {service}
+                </h3>
+                <p className="text-gray-300">
+                  High-quality workmanship with strict safety and durability
+                  standards.
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold mb-6 text-white">About Us</h2>
+          <p className="text-gray-300 text-lg">
+            We are a professional steel welding and fabrication company
+            committed to precision, strength, and reliability. With years of
+            hands-on experience, we deliver custom solutions tailored to your
+            project requirements.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="py-20 px-6 bg-gray-900">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold mb-6 text-white">
+            Get in Touch
+          </h2>
+          <p className="text-gray-300 mb-8">
+            Ready to start your project? Contact us today for a free quote.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="tel:+1234567890">
+              <Button className="px-6 py-5" aria-label="Call us">
+                Call Us
+              </Button>
+            </a>
+            <a href="mailto:info@example.com">
+              <Button variant="outline" className="px-6 py-5" aria-label="Email us">
+                Email Us
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-gray-400 text-sm">
+        © {new Date().getFullYear()} Steel Welding & Fabrication. All rights
+        reserved.
+      </footer>
+    </div>
+  );
+}
